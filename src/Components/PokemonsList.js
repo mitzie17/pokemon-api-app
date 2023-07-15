@@ -1,6 +1,6 @@
 import React from 'react';
 import { pokemonsApi } from '../Api/PokemonsApi';
-import Pokemon from './Pokemon';
+import { Pokemon } from './Pokemon';
 
 export default class PokemonsList extends React.Component {
     state = {
