@@ -11,24 +11,23 @@ export const Pokemon = (props) => {
         const updatedPokemon = {
     // The pokemon object's abilities array is updated by filtering out the ability we want to remove.
             ...pokemon,
-            abilities: pokemon.abilities.filter((x) => x.id !== abilityId)
+            abilities: pokemon.abilities.filter((x) => x !== abilityId)
         };
     // Then the updatePokemon method (from the PokemonsList class) is called and the updatedPokemon object is passed in.
         updatePokemon(updatedPokemon);
     }
 
     // Here we pass in an ability to the addNewAbility method
-    const addNewAbility = (ability) => {
+    const addNewAbility = (ability) => updatePokemon({ ...pokemon, abilities: [...pokemon.abilities, ability]})
     // This method returns the updatePokemon method, which takes in a pokemon object, and a new abilities array with the new ability included.
-        return updatePokemon({ ...pokemon, abilities: [...pokemon.abilities, ability]})
-    };
+    
 
     const abilities = () => (
         <ul>
             {pokemon.abilities.map((ability, index) => (
                 <li key={index}>
                     <label>{ability}</label>
-                    <button onClick={(e) => deleteAbility(ability.id)}>Delete</button>
+                    <button onClick={(e) => deleteAbility(ability)}>Delete</button>
                 </li>
             ))}
         </ul>
