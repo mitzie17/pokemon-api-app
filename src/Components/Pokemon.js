@@ -27,19 +27,25 @@ export const Pokemon = (props) => {
             {pokemon.abilities.map((ability, index) => (
                 <li key={index}>
                     <label>{ability}</label>
-                    <button onClick={(e) => deleteAbility(ability)}>Delete</button>
+                    <button className='btn btn-danger btn-sm' onClick={(e) => deleteAbility(ability)}>Delete</button>
                 </li>
             ))}
         </ul>
     );
 
     return (
-        <div>
-            <h1>{pokemon.name}</h1>
-            {
-            abilities({abilities, pokemonId: pokemon.id, deleteAbility})
-            }
-            <NewAbilityForm addNewAbility={addNewAbility}/>
+        <div className="card">
+            <div className="card-header">
+                <h2 className="card-tile">{pokemon.name}</h2>
+                <h6>Type: {pokemon.type}</h6>
+            </div>
+            <div className="card-body">
+                {
+                abilities({abilities, pokemonId: pokemon.id, deleteAbility})
+                }
+                <NewAbilityForm addNewAbility={addNewAbility}/>
+            </div>
+            
         </div>
     );
 

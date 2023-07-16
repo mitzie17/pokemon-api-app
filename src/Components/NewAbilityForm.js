@@ -15,15 +15,19 @@ export const NewAbilityForm = (props) => {
 
     return (
         <div>
-            <h3>Add a new ability</h3>
+            
             <form onSubmit={onSubmit}>
+            <h5>Add a new ability</h5>
+                <div className='form-group'>
                 <input
                     type='text'
-                    placeholder='new ability'
+                    placeholder='ability name'
                     onChange={(e) => setAbility(e.target.value)}
                     value={ability}
                 />
-                <button type='submit'>Add new ability</button>
+                <button className='btn btn-success btn-sm' type='submit'>Add new ability</button>
+                </div>
+                
             </form>
         </div>
     )
