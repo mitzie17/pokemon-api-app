@@ -1,12 +1,19 @@
 h1 {
   text-align: center;
-  margin: 2rem
+  margin: 2rem;
 }
 
 button {
-  margin: 0.5rem
+  margin: 0.5rem;
 }
 
 body {
-  background-color: lightcyan
+  background-color: lightcyan;
+}
+
+.home-div {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  margin: 2%;
 }
