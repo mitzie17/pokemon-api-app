@@ -2,7 +2,9 @@ import React from "react";
 import { NewAbilityForm } from "./NewAbilityForm";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
 
 export const Pokemon = (props) => {
   const { pokemon, updatePokemon } = props;
@@ -57,11 +59,7 @@ export const Pokemon = (props) => {
   };
 
   return (
-    <Card
-      style={{ width: "18rem" }}
-      className="mb-2"
-      bg={bgColorChange(pokemon.type)}
-    >
+    <Card className="mb-2 h-100" bg={bgColorChange(pokemon.type)}>
       <Card.Header as="h1">
         <Card.Title>{pokemon.name}</Card.Title>
         <Card.Subtitle>Type: {pokemon.type}</Card.Subtitle>
