@@ -59,7 +59,10 @@ export const Pokemon = (props) => {
   };
 
   return (
-    <Card className="mb-2 h-100" bg={bgColorChange(pokemon.type)}>
+    <Card
+      className="mb-2 h-100 overflow-hidden align-items-center"
+      bg={bgColorChange(pokemon.type)}
+    >
       <Card.Header as="h1">
         <Card.Title>{pokemon.name}</Card.Title>
         <Card.Subtitle>Type: {pokemon.type}</Card.Subtitle>
