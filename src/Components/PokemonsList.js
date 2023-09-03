@@ -26,9 +26,9 @@ export default class PokemonsList extends React.Component {
   render() {
     return (
       <div className="pokemon-list">
-        <Row sm={2} md={3}>
+        <Row xs={1} sm={2} md={3}>
           {this.state.pokemons.map((pokemon) => (
-            <Col>
+            <Col className="pokemon-col">
               <Pokemon
                 pokemon={pokemon}
                 key={pokemon.id}
