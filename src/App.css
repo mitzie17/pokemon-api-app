@@ -17,3 +17,22 @@ body {
   justify-content: center;
   margin: 2%;
 }
+
+.card-mb-2-h-100 {
+  overflow: hidden;
+}
+
+.ability-form {
+  border-top: 1px dashed black;
+  padding-top: 2%;
+  text-align: center;
+}
+
+.card-header {
+  border: 1px dashed black;
+}
+
+.pokemon-col {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
