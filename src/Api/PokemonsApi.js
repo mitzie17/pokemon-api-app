@@ -45,6 +45,17 @@ class PokemonsApi {
       console.log("Oh no! Pokemon counldnt be created.");
     }
   };
+
+  delete = async (pokemonId) => {
+    try {
+      const resp = await fetch(`${POKEMONS_API}/${pokemonId}`, {
+        method: "DELETE",
+      });
+      const data = await resp.json();
+    } catch (e) {
+      console.log("Oh no! Pokemon was not deleteed.");
+    }
+  };
 }
 
 export const pokemonsApi = new PokemonsApi();
