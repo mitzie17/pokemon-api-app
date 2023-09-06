@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 export const Pokemon = (props) => {
-  const { pokemon, updatePokemon } = props;
+  const { pokemon, updatePokemon, deletePokemon } = props;
 
   // Here we pass in the id of the ability to be removed.
   const deleteAbility = (abilityId) => {
@@ -44,6 +44,10 @@ export const Pokemon = (props) => {
     </ListGroup>
   );
 
+  const removePokemon = (pokemonId) => {
+    deletePokemon(pokemonId);
+  };
+
   const bgColorChange = (pokemonType) => {
     if (pokemon.type === "Water") {
       return "primary";
@@ -70,6 +74,12 @@ export const Pokemon = (props) => {
       <Card.Header as="h1">
         <Card.Title>{pokemon.name}</Card.Title>
         <Card.Subtitle>Type: {pokemon.type}</Card.Subtitle>
+        <button
+          className="btn btn-dark btn-sm"
+          onClick={(e) => removePokemon(pokemon.id)}
+        >
+          Delete
+        </button>
       </Card.Header>
       <Card.Body>
         <Card.Subtitle>Abilities:</Card.Subtitle>

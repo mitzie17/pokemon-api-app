@@ -23,6 +23,11 @@ export default class PokemonsList extends React.Component {
     this.fetchPokemons();
   };
 
+  deletePokemon = async (pokemonId) => {
+    await pokemonsApi.delete(pokemonId);
+    this.fetchPokemons();
+  };
+
   render() {
     return (
       <div className="pokemon-list">
@@ -33,6 +38,7 @@ export default class PokemonsList extends React.Component {
                 pokemon={pokemon}
                 key={pokemon.id}
                 updatePokemon={this.updatePokemon}
+                deletePokemon={this.deletePokemon}
               />
             </Col>
           ))}
