@@ -8,8 +8,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { pokemonsApi } from "./Api/PokemonsApi";
 
 export default class App extends React.Component {
+  createPokemon = async (newPokemon) => {
+    await pokemonsApi.post(newPokemon);
+    pokemonsApi.get();
+  };
+
   render() {
     return (
       <div className="container">
@@ -39,8 +45,8 @@ export default class App extends React.Component {
                   <PokemonsList />
                 </Route>
 
-                <Route path="/newpokemonsform">
-                  <NewPokemonForm />
+                <Route path="/newpokemonform">
+                  <NewPokemonForm createPokemon={this.createPokemon} />
                 </Route>
 
                 <Route path="/">
