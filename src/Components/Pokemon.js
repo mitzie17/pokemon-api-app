@@ -53,8 +53,12 @@ export const Pokemon = (props) => {
       return "success";
     } else if (pokemon.type === "Electric") {
       return "warning";
+    } else if (pokemon.type === "Ice") {
+      return "info";
+    } else if (pokemon.type === "Normal") {
+      return "secondary";
     } else {
-      return "dark";
+      return "light";
     }
   };
 
