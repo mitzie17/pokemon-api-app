@@ -21,11 +21,11 @@ export default class App extends React.Component {
       <div className="container">
         <Navbar
           expand="lg"
-          className="bg-body-tertiary"
+          className="bg-body-tertiary p-2 border border-danger"
           bg="dark"
           data-bs-theme="dark"
         >
-          <Navbar.Brand className="navbarBrand" href="/">
+          <Navbar.Brand className="navbarBrand text-warning" href="/">
             My Pokemon App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
