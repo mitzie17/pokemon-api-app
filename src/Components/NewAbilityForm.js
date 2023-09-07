@@ -16,8 +16,8 @@ export const NewAbilityForm = (props) => {
   return (
     <div className="ability-form m-3">
       <form onSubmit={onSubmit}>
-        <h6>Add a new ability:</h6>
         <div className="form-group">
+          <h6>Add a new ability:</h6>
           <input
             type="text"
             placeholder="ability name"
