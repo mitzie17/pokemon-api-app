@@ -27,7 +27,10 @@ export const NewPokemonForm = (props) => {
       {showPokemonList ? (
         <PokemonsList />
       ) : (
-        <Form onSubmit={onSubmit}>
+        <Form
+          onSubmit={onSubmit}
+          className="border border-danger border-3 rounded p-3 m-4 bg-warning"
+        >
           <h3 className="form-heading">Create new pokemon:</h3>
           <Form.Group className="mb-3" controlId="name">
             <Form.Label className="formLabels">Name</Form.Label>
@@ -56,7 +59,7 @@ export const NewPokemonForm = (props) => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="info" type="submit">
             Submit
           </Button>
         </Form>
