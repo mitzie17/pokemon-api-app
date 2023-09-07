@@ -22,14 +22,15 @@ export const Pokemon = (props) => {
   };
 
   // Here we pass in an ability to the addNewAbility method
-  const addNewAbility = (ability) =>
+  const addNewAbility = (ability) => {
     updatePokemon({ ...pokemon, abilities: [...pokemon.abilities, ability] });
+  };
   // This method returns the updatePokemon method, which takes in a pokemon object, and a new abilities array with the new ability included.
 
   const abilities = () => (
     <ListGroup className="list-group-flush">
       {pokemon.abilities.map((ability, index) => (
-        <ListGroup.Item>
+        <ListGroup.Item key={index}>
           <div key={index}>
             <label>{ability}</label>
             <button
