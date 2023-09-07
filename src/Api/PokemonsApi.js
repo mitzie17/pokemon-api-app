@@ -36,7 +36,7 @@ class PokemonsApi {
         body: JSON.stringify({
           name: newPokemon.name,
           type: newPokemon.type,
-          abilities: [...newPokemon.abilities, newPokemon.ability],
+          abilities: newPokemon.abilities,
         }),
       });
       const data = await resp.json();
