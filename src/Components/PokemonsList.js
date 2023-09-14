@@ -8,6 +8,7 @@ import { FilterButtons } from "./FilterButtons";
 export default class PokemonsList extends React.Component {
   state = {
     pokemons: [],
+    pokemonsCopy: [],
   };
   componentDidMount() {
     this.fetchPokemons();
@@ -28,11 +29,28 @@ export default class PokemonsList extends React.Component {
     this.fetchPokemons();
   };
 
-  filterPokemonByType = (type) => {
-    const filtredPokemon = this.state.pokemons.filter(
-      (pokemon) => pokemon.type === type
-    );
-    return filtredPokemon;
+  handleTypeBtn = (e) => {
+    console.log(e.target.value);
+    let pokemonsCopy;
+    if (e.target.value === "All") {
+      pokemonsCopy = this.state.pokemons;
+    } else {
+      pokemonsCopy = this.state.pokemons.filter(
+        (pokemon) => pokemon.type === e.target.value
+      );
+    }
+    this.setState({
+      pokemons: pokemonsCopy,
+    });
+  };
+
+  fetchPokemonTypes = async () => {
+    const pokemons = await pokemonsApi.get();
+    const filteredPokemon = [
+      ...new Set(pokemons.map((pokemon) => pokemon.type)),
+    ];
+    return filteredPokemon;
+    console.log(filteredPokemon);
   };
 
   render() {
@@ -44,9 +62,9 @@ export default class PokemonsList extends React.Component {
       <div>
         <div className="filters">
           <FilterButtons
-            filterPokemon={this.filterPokemonByType}
             typesButtons={filterTypes}
             pokemons={this.state.pokemons}
+            handleTypeBtn={this.handleTypeBtn}
           />
         </div>
         <div className="pokemon-list">
