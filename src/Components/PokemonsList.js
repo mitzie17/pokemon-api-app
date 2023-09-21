@@ -47,29 +47,11 @@ export default class PokemonsList extends React.Component {
     });
   };
 
-  // fetchPokemonTypes = async () => {
-  //   const pokemons = await pokemonsApi.get();
-  //   this.setState({ pokemons });
-  //   console.log(pokemons);
-  //   const filteredPokemon = [
-  //     ...new Set(pokemons.map((pokemon) => pokemon.type)),
-  //   ];
-  //   console.log(filteredPokemon);
-  //   return filteredPokemon;
-  // };
-
   render() {
-    // const filterTypes = [
-    //   ...new Set(this.state.pokemons.map((pokemon) => pokemon.type)),
-    // ];
-
     return (
       <div>
         <div className="filters">
           <FilterButtons
-            // typesButtons={filterTypes}
-            pokemons={this.state.pokemons}
-            filteredPokemon={this.state.filteredPokemon}
             handleTypeBtn={this.handleTypeBtn}
             buttons={this.state.buttons}
           />
