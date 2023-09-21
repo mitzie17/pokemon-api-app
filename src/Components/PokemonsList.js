@@ -8,7 +8,8 @@ import { FilterButtons } from "./FilterButtons";
 export default class PokemonsList extends React.Component {
   state = {
     pokemons: [],
-    pokemonsCopy: [],
+    filteredPokemon: [],
+    buttons: ["All", "Grass", "Fire", "Water", "Ice", "Electric", "Normal"],
   };
   componentDidMount() {
     this.fetchPokemons();
@@ -16,7 +17,7 @@ export default class PokemonsList extends React.Component {
 
   fetchPokemons = async () => {
     const pokemons = await pokemonsApi.get();
-    this.setState({ pokemons });
+    this.setState({ pokemons: pokemons, filteredPokemon: pokemons });
   };
 
   updatePokemon = async (updatePokemon) => {
@@ -31,45 +32,51 @@ export default class PokemonsList extends React.Component {
 
   handleTypeBtn = (e) => {
     console.log(e.target.value);
-    let pokemonsCopy;
+
+    let filteredPokemon;
     if (e.target.value === "All") {
-      pokemonsCopy = this.state.pokemons;
+      filteredPokemon = this.state.pokemons;
     } else {
-      pokemonsCopy = this.state.pokemons.filter(
+      filteredPokemon = this.state.pokemons.filter(
         (pokemon) => pokemon.type === e.target.value
       );
+      console.log(filteredPokemon);
     }
     this.setState({
-      pokemons: pokemonsCopy,
+      filteredPokemon: filteredPokemon,
     });
   };
 
-  fetchPokemonTypes = async () => {
-    const pokemons = await pokemonsApi.get();
-    const filteredPokemon = [
-      ...new Set(pokemons.map((pokemon) => pokemon.type)),
-    ];
-    return filteredPokemon;
-    console.log(filteredPokemon);
-  };
+  // fetchPokemonTypes = async () => {
+  //   const pokemons = await pokemonsApi.get();
+  //   this.setState({ pokemons });
+  //   console.log(pokemons);
+  //   const filteredPokemon = [
+  //     ...new Set(pokemons.map((pokemon) => pokemon.type)),
+  //   ];
+  //   console.log(filteredPokemon);
+  //   return filteredPokemon;
+  // };
 
   render() {
-    const filterTypes = [
-      ...new Set(this.state.pokemons.map((pokemon) => pokemon.type)),
-    ];
+    // const filterTypes = [
+    //   ...new Set(this.state.pokemons.map((pokemon) => pokemon.type)),
+    // ];
 
     return (
       <div>
         <div className="filters">
           <FilterButtons
-            typesButtons={filterTypes}
+            // typesButtons={filterTypes}
             pokemons={this.state.pokemons}
+            filteredPokemon={this.state.filteredPokemon}
             handleTypeBtn={this.handleTypeBtn}
+            buttons={this.state.buttons}
           />
         </div>
         <div className="pokemon-list">
           <Row xs={1} sm={2} md={3}>
-            {this.state.pokemons.map((pokemon, index) => (
+            {this.state.filteredPokemon.map((pokemon, index) => (
               <Col className="pokemon-col" key={index}>
                 <Pokemon
                   pokemon={pokemon}
