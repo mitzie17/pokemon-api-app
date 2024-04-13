@@ -1,3 +1,16 @@
+# Instrunctions
+
+1. Run npm install
+2. Run npm start
+
+# About
+
+This app is for assignment 15 of the PromineoTech Front End Software Engineering progam. It allows for all CRUD operations and utilizes React Router for routing and React Bootstrap for styling.
+
+# App functionalities
+
+The app allows users to add a pokemon to their pokedex with (name, type, and abilities) attributes as well as delete the pokemon. Once a pokemon is created the pokemon card color is determined by the type specified. Additionally, users can continue adding abilities to their pokemon card and/or delete them, and filter their pokemon cards by pokemon type.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
